@@ -1,7 +1,49 @@
-Phteven
+Meat Freshness Prediction <!-- omit from toc -->
 ==============================
+- [Summary](#summary)
+- [Model Prediction Results](#model-prediction-results)
+- [Model Evaluation](#model-evaluation)
+  - [Misclassification Cost (MCC) Matrix](#misclassification-cost-mcc-matrix)
+  - [Evaluation on (MCC)](#evaluation-on-mcc)
+- [Project Organization](#project-organization)
+- [Team Composition](#team-composition)
 
-Developing a model to detect rotting meat in supermarkets
+
+Summary
+------------
+Trained ResNet models to detect rotting meat in supermarkets based on their image. Used the expected value framework to determine which model will be the best for deployment base on the cost of misclassifying items
+
+Model Prediction Results
+------------
+FE: Feature Extraction, FT: Fine-tuning<br>
+Calculated on test data
+| Model        |   Accuracy |  Precision |     Recall |
+| :----------- | ---------: | ---------: | ---------: |
+| ResNet 18-FE |     82.71% |     84.66% |    83.71% |
+| ResNet 18-FT | **93.13%** | **93.97%** | **92.85%** |
+| ResNet 50-FE |     88.03% |     88.35% |     88.86% |
+| ResNet 50-FT |     84.70% |     84.50% |     86.14% |
+
+
+Model Evaluation 
+------------
+### Misclassification Cost (MCC) Matrix ###
+
+|                      | True Spoiled | True Half-Fresh | True Fresh |
+| -------------------- | :----------: | :-------------: | :--------: |
+| Predicted Spoiled    |      0       |      $4.50      |   $9.00    |
+| Predicted Half-Fresh |   $499.75    |        0        |   $4.00    |
+| Predicted Fresh      |    $99.90    |      $3.50      |     0      |
+
+### Evaluation on (MCC) ###
+| Model        |   Accuracy |      MCC |
+| ------------ | ---------: | -------: |
+| ResNet 18-FE |     82.71% |     $886 |
+| ResNet 18-FT | **93.13%** |   $5,076 |
+| ResNet 50-FE |     88.03% | **$242** |
+| ResNet 50-FT |     84.70% |     $316 |
+
+Best model to deploy is ResNet 50-FE
 
 Project Organization
 ------------
@@ -27,7 +69,7 @@ Project Organization
     │   └── main.py        <- Main flask file for demo
     │   └── requirements.txt     <- Package installation
     │
-    ├── models             <- Trained and serialized models, model predictions, or model summaries
+    ├── models             <- (Empty)
     │
     ├── notebooks          <- Jupyter notebooks used for modelling, predictions and experiments
     │   └── 1.0-EDA-and-preprocessing.ipynb
@@ -72,13 +114,13 @@ Project Organization
 
 --------
 
-### Created by: 
-**Team 09**
-Sagiraju Bhargav: A0262798J |
-Nathaniel Nartea Casanova: A0262708B |
-Manan Lohia:A0262838U |
-Lam Ivan Chuen Chun:A0262765W |
-Toshinori Yoshiyasu:A0262738W
+Team Composition 
+------------
+Sagiraju Bhargav <br>
+Nathaniel Nartea Casanova <br>
+Manan Lohia <br>
+Lam Ivan Chuen Chun <br>
+Toshinori Yoshiyasu <br>
 
 All Rights Reserved.
 
