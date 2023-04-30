@@ -11,7 +11,9 @@ Meat Freshness Prediction <!-- omit from toc -->
 
 Summary
 ------------
-Trained ResNet models to detect rotting meat in supermarkets based on their image. Used the expected value framework to determine which model will be the best for deployment base on the cost of misclassifying items
+i. Trained ResNet models to detect rotting meat in supermarkets based on their image. Used the expected value framework to determine which model will be the best for deployment base on the cost of misclassifying items
+
+ii. Experimented with Image Segmentation (UNet) and a Dense Net model to classify images based on the image segments detected by UNet model and passing these as input features to the Dense Net model. 
 
 Model Prediction Results
 ------------
@@ -44,6 +46,13 @@ Model Evaluation
 | ResNet 50-FT |     84.70% |     $316 |
 
 Best model to deploy is ResNet 50-FE
+
+### Experiment Results on UNet and Dense Net ###
+| Accuracy     |  Precision |   Recall |
+| ------------ | ---------: | -------: |
+| 35.35%       |  100%      |   35.25% |
+
+Unfortunately this combination did not yield a good performance and the resulting MCC was $89,411.
 
 Project Organization
 ------------
@@ -114,7 +123,7 @@ Project Organization
 
 --------
 
-Team Composition 
+Team Members 
 ------------
 Sagiraju Bhargav <br>
 Nathaniel Nartea Casanova <br>
