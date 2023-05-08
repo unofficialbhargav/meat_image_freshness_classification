@@ -15,6 +15,8 @@ i. Trained ResNet models to detect rotting meat in supermarkets based on their i
 
 ii. Experimented with Image Segmentation (UNet) and a Dense Net model to classify images based on the image segments detected by UNet model and passing these as input features to the Dense Net model. 
 
+Full details published in [arXiv](https://arxiv.org/abs/2305.00986).
+
 Model Prediction Results
 ------------
 FE: Feature Extraction, FT: Fine-tuning<br>
